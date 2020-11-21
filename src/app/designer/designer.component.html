@@ -1,0 +1,17 @@
+<p>Designer Table</p>
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Contact No</th>
+    <th>Salary</th>
+    <th>Designation</th>
+  </tr>
+  <tr *ngFor="let employee of employeeData" [ngStyle]="{ backgroundColor: getColor(employee.salary) }">
+    <th>{{employee.firstName}}</th>
+    <th>{{employee.lastName}}</th>
+    <th>{{employee.contactNo}}</th>
+    <th>{{employee.salary}}</th>
+    <th>{{employee.roleType}}</th>
+  </tr>
+</table>

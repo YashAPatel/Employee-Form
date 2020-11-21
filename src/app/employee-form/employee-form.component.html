@@ -1,0 +1,57 @@
+<div class="container">
+    <h2>Employee-form</h2>
+    <form (ngSubmit)="onSubmitForm()" #form="ngForm">
+        First Name: 
+        <input 
+            type="text" 
+            name="firstName"
+            id="firstName"
+            class="form-control"
+            ng-maxlength="20" 
+            ngModel
+            required
+            #firstName="ngModel">
+            <span *ngIf="!firstName.valid && firstName.touched">Please enter a name!</span>
+        <br><br>
+        Last Name: 
+        <input 
+            type="text" 
+            name="lastName" 
+            ng-maxlength="20" 
+            ngModel
+            required
+            #lastName="ngModel">
+            <span *ngIf="!lastName.valid && lastName.touched">Please enter a name!</span>
+            <br><br>
+        Contact No: 
+        <input 
+            type="number" 
+            name="contactNo"  
+            [pattern]="pattern"
+            ngModel
+            #contactNo="ngModel"
+            required>
+            <span *ngIf="!contactNo.valid && contactNo.errors.pattern && contactNo.touched">Please enter a valid Contact number!</span>
+            <br><br>
+        Salary: 
+        <input 
+            type="number" 
+            name="salary" 
+            ngModel 
+            required
+            #salary="ngModel">
+            <span *ngIf="!salary.valid && salary.touched">Please enter a salary!</span>
+            <br><br>
+        Role Type: 
+        <select 
+            name="roleType" 
+            id="roleType"
+            [ngModel]="'Developer'"
+            required >
+            <option value="Project-Manager">Project-Manager</option>
+            <option value="Developer">Developer</option>
+            <option value="Designer">Designer</option>
+        </select><br><br>    
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+    </form>
+    </div>
